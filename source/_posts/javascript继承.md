@@ -5,13 +5,13 @@ tags: JavaScript
 ---
 JavaScript实现继承方式
 1. new
-        `Student.prototype = new Person();`
+    `Student.prototype = new Person();`
 得到一个 Person 实例，并且这个实例指向构造器的 prototype 属性和调用了构造函数，因为调用的构造函数，而 Student 只是一个类，并没有实例化，只为了继承，调用构造函数创建一个实例，参数的问题就不容易解决。
 
 例如，当 Person() 中有一个 name 属性时，而 Student 上也有 name 属性时，当 
 Student.prototype = new Person(); Person 上的 name:undefined ,并且 Student 永远不会用到 Person 上的 name 性，如果 Person 上有很多这样的属性情况可想而知。
 
-    **new 操作符所做的事情(var a = new A())**
+**new 操作符所做的事情(var a = new A())**
 a.首先生成一个空对象 a = {} ，它是 Object 的实例
 b.设置 a 的原型链 a.__proto__ = A.prototype 
 c.A.call(a), A 的 this 指向 a,并执行 A 的函数体
@@ -26,11 +26,11 @@ d.判断 A 的返回值类型，
         console.log(a) //object{}
 ```
 解释：首先 this === a， 但是 A 返回的是 this.__proto__ (a.__proto__), this.__proto__ 指向了原型对象 Object() 构造函数创建的 object 对象，它是一个引用类型，它替换掉 a ，所以这里的变量 a 是一个指针，指向它的原型。
-        `console.log(A.prototype === a); //true`
+    `console.log(A.prototype === a); //true`
 此时 A 构造函数的原型和 a 指针（指向 a.__proto__）是同一个对象
 
 2. Object.create()
-        `var obj = Object.create({ x:1 });`
+    `var obj = Object.create({ x:1 });`
 Object.create()是系统内置函数，参数为对象，返回新创建的对象，并且该对象的原型指向参数
 
 创建空对象，并且对象的 __proto__ 指向参数，既继承了属性和方法，本身又有自己的空对象，对于自己添加的属性和方法不会去更改原型上的属性和方法。
