@@ -45,12 +45,12 @@ Node是一个接口，许多DOM类型从这个接口继承，并允许类似地�
 - ` .nodeValue ` ==> 返回或设置当前节点的值
 
 - ` .nodeType ` ==> 只读属性，表示的是该节点的类型
-    - 元素节点 ==> nodeType === 1
-    - 文本节点 ==> nodeType === 3
-    - 注释节点 ==> nodeType === 8
-    - 文档节点 ==> nodeType === 9
-    - 描述文档类型的 `DocumentType`节点 ==> nodeType === 10
-    - 一个 `DocumentFragment` 节点 ==> nodeType === 11（**使用 `DocumentFragment` 进行性能优化**）
+    - 元素节点（Node.ELEMENT_NODE） ==> nodeType === 1
+    - 文本节点（Node.TEXT_NODE） ==> nodeType === 3
+    - 注释节点（Node.COMMENT_NODE） ==> nodeType === 8
+    - 文档节点（Node.DOCUMENT_NODE） ==> nodeType === 9
+    - 描述文档类型的 `DocumentType`节点（Node.DOCUMENT_TYPE_NODE） ==> nodeType === 10
+    - 一个 `DocumentFragment` 节点（Node.DOCUMENT_FRAGMENT_NODE） ==> nodeType === 11（**使用 `DocumentFragment` 进行性能优化**）
 
 - ` .parentElement`  ==>     返回当前节点的父元素节点,如果该元素没有父节点,或者父节点不是一个元素节点.则 返回null
 
