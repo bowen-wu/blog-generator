@@ -41,7 +41,7 @@ request.getAllResponseHeaders()
 4. 数据
 ```
 ### Node.js（后端）设置响应 header
-[详解](https://www.jianshu.com/p/19275eecb1b1)
+[详解](https://bowen-wu.github.io/2018/01/19/HTTP%E7%B3%BB%E5%88%97-Node-js/)
 
 # callback（回调）
 callback 就是一个回调函数，如下图所示。

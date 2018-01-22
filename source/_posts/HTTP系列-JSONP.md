@@ -111,3 +111,13 @@ button.addEventListener('click',(event) => {
 
 ### 套路：为什么 JSONP 不支持 POST 请求
 JSONP 是动态创建 ` script ` 标签 + 传入 callback 查询参数，` script ` 标签，只能发送 GET 请求，不能使用 POST。
+
+### 相关知识点
+如果后端没有写 
+```
+response.write(` ${ query.callback }.call(undefined,{
+    "success": true,
+    "left": ${ newAmount }
+}) `)
+```
+前端虽然有响应内容，但是使用不到
