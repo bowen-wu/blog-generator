@@ -33,7 +33,7 @@ tags: JavaScript
         return 
     }
     ```
-混合式中，函数名 name 只在函数体内部有效，指代函数表达式本身，在函数体外部无效。
+    混合式中，函数名 name 只在函数体内部有效，指代函数表达式本身，在函数体外部无效。
 4. Function 构造函数
     最后一个参数被始终看成函数体，而前面的参数则枚举了新函数的参数。
     ```
@@ -51,11 +51,15 @@ tags: JavaScript
     ```
     （param1[ , param2[, ...] ]）=> { return  }
     ```
+### 形参和实参
+- parameters ==> 形参，定义时的占位符
+- arguments ==> 实参，调用时传入的参数
 
 ### 说明
 - 函数会在执行完 return 语句之后停止并立即退出，因此，位于 return 语句之后的任何代码都永远不会执行。
 - 没有传递值的命名参数将自动被赋值 undefined
-- 所有参数传递的都是值，不可能通过引用传递参数。
+- 所有参数传递的都是值，不可能通过引用传递参数
+- 验证函数，使用 ` typeof xxx === 'function' `
 
 # 函数声明和函数表达式
 - 函数声明
@@ -82,9 +86,16 @@ tags: JavaScript
 ![Function.prototype API](http://upload-images.jianshu.io/upload_images/9617841-b7e392157560ccdd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - ` call() ` ==> 调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)
+    **作用：**
+    1. 改变 this 值
+    ![改变 this 值](http://upload-images.jianshu.io/upload_images/9617841-248eb360eed5d5e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    2. 操作参数
+
+    **语法：**
     ```
     fun.call(this, arg1, arg2, ...)
     ```
+
     **参数：**
     1. this ：函数运行时的指定的 this 值。
         - **非严格模式**下，若 this 为 null 或者 undefined ，则 this 自动指向**全局对象（global[ window ]）**，同时值为原始值(数字，字符串，布尔值)的 this 会**指向该原始值的自动包装对象**。
@@ -92,30 +103,63 @@ tags: JavaScript
 
         - **严格模式**下，若 this 为 undefined ，则 **this === undefined**
         ![严格模式](http://upload-images.jianshu.io/upload_images/9617841-8ed9e92d37439649.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+        此处 call 的时候指明了 this === 1，例子不明显，应该 fn.call()，此时便可以打印出 undefined
 
     2. arguments ：伪数组，元素为函数的参数
         - 函数中的参数在内部是用一个伪数组（`arguments`）来表示，在函数内部通过 `arguments` 对象来访问参数从而获取传递给函数的每一个参数。
         - `arguments` 可以被用作被调用对象的所有未指定的参数。可以使用arguments来把所有的参数传递给被调用对象。 
         - `arguments` 对象的长度是由传入的参数个数决定的，不是由定义函数时的命名参数的个数决定的。
 
-- ` apply() ` ==> 调用一个函数, 其具有一个指定的`this`值，以及作为一个数组（或类似数组的对象）提供的参数。
+- ` apply() ` ==> 调用一个函数, 其具有一个指定的`this`值，以及作为一个数组（或**类似数组的对象**）提供的参数。
+     **作用：**和 call() 一样
+    1. 改变 this 值
+    2. 操作参数
+
+    **语法：**
     ```
     fun.apply(this, arguments)
     ```
 
-- ` bind() ` ==> 创建一个新的函数, 当被调用时，将其 ` this ` 关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。
+    **使用实例：**
+    1. 实例1：**不关心 this ，所以将 this 传为 null**
+    ![apply 实例1](http://upload-images.jianshu.io/upload_images/9617841-ca8c95bbb5abd53b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+    2. 实例2：**关心 this ，this === arr1**
+    ![Apply 实例2](http://upload-images.jianshu.io/upload_images/9617841-3b3a79c946e1e7c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+  **说明：` call() ` 和 ` apply() ` 的区别**
+    `apply()` 与 `call()` 作用相同，不同之处在于**提供参数的方式**。
+    `apply()` 使用参数数组，**可以将数组里的元素拆分传入参数**
+    `call()` 使用一组参数列表，一个一个传递参数
+    `apply `可以使用数组字面量，也可以使用 `arguments `对    象， `arguments` 是一个函数的局部变量。 
+
+
+
+- ` bind() ` ==> 创建一个新的函数, 当被调用时，将其 ` this ` 关键字设置为提供的值，**返回新创建的函数**。在调用新函数时，在任何提供之前提供一个给定的参数序列。
+    **作用：**
+    1. 切换上下文（this）
+    2. 科里化
+
+    **语法：**
     ```
     fun.bind( this [ , arg1 [ , arg2 [ , ... ] ] ] )
     ```
+    
+    **使用实例：**
+    1. 实例1：**基本用法**
+    ![bind 基本用法](http://upload-images.jianshu.io/upload_images/9617841-f825f2fa123c4db2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    2. 实例2：**实际应用**
+    ![bind 实际应用](http://upload-images.jianshu.io/upload_images/9617841-71e4fff179f8a3f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    3. 实例3：**利用 this + apply 实现 bind**
+    ![重构 bind](http://upload-images.jianshu.io/upload_images/9617841-ca4c2e02d2132d0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-***
-**说明：` call() ` 和 ` apply() ` 的区别**
-`apply` 与 `call()` 作用相同，不同之处在于**提供参数的方式**。
-`apply` 使用参数数组
-`call()` 使用一组参数列表
-`apply `可以使用数组字面量，也可以使用 `arguments `对象， `arguments` 是一个函数的局部变量。 
-***
-
+# new
+1. 创建一个新对象 obj ，对象 ` __proto__ ` 指向构造函数的 ` prototype `
+    ```
+    对象. __proto__ === 构造函数.prototype
+    ```
+2. 调用 call()/apply()/bind()
+  
 # Call Stack（调用栈）
 栈是一种数据结构，特点是**先进后出**，js 代码执行时都遵循 Call Stack 的规则。如果压栈太多会导致错误（Stack Overflow[ 栈溢出 ]）
 
@@ -160,13 +204,56 @@ scope（范围、视野、眼界）
     fn1.call( obj );
 
 
-###### 例子5：
+###### 例子4：
     var liTags = document.querySelectAll( ' li ' );
     for( let i = 0, len = liTags.length; i < len; i++ ){
         liTags[ i ].onclick = function(){
             console.log( i )  // 打印出的 i 都是最后的数字
         }
     }
+
+# this 值
+
+this 的调用主要有两种方式，一种是函数（function），另一种是作为对象的方法（methods）
+### 判断 this 值就看函数怎么被调用，之后转化为 call 形式
+###### 例子1：作为对象的方法调用
+```
+function fn(){
+    console.log(this)
+}
+let obj = {
+    a: 'a',
+    fn: fn
+}
+obj.fn()  // this === obj
+```
+###### 例子2：作为对象属性的深层次嵌套
+```
+function fn(){
+    console.log(this)
+}
+let obj = {
+    a: 'a',
+    wrapper: {
+        b: 'b',
+        fn: fn
+    }
+}
+obj.wrapper.fn()  // this === { b: 'b', fn: fn } === obj.wrapper
+```
+###### 例子3：
+```
+let obj = {
+    a: 'a',
+    fn () {
+        console.log(fn)
+    }
+}
+function fncb(cb){
+    cb()
+}
+fncb(obj.fn)  // this === 全局变量
+```
 
 # 闭包
 如果一个函数使用了它范围外的值，那么这个函数 + 这个变量就叫做闭包。
