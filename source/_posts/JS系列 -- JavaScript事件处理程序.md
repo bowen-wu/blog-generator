@@ -1,5 +1,5 @@
 ---
-title: JavaScript事件处理程序
+title: JS系列 -- JavaScript事件处理程序
 date: 2017-12-22 23:28:10
 tags: JavaScript
 ---

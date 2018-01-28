@@ -1,5 +1,5 @@
 ---
-title: JavaScript实现继承方式
+title: JS系列 -- JavaScript实现继承方式
 date: 2017-12-21 23:00:08
 tags: JavaScript
 ---

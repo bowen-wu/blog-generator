@@ -1,5 +1,5 @@
 ---
-title: Function 浅析
+title: JS系列 -- Function 浅析
 date: 2018-01-11 20:04:06
 tags: JavaScript
 ---

@@ -1,5 +1,5 @@
 ---
-title: 基本包装类型
+title: JS系列 -- 基本包装类型
 date: 2018-01-10 12:56:16
 tags: JavaScript
 ---

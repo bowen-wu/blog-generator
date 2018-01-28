@@ -1,5 +1,5 @@
 ---
-title: JavaScript DOM API
+title: JS系列 -- JavaScript DOM API
 date: 2018-01-08 18:37:51
 tags: JavaScript
 ---

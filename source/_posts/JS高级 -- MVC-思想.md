@@ -1,5 +1,5 @@
 ---
-title: MVC 思想
+title: JS高级 -- MVC 思想
 date: 2018-01-22 22:13:10
 tags: JavaScript 高级
 ---
