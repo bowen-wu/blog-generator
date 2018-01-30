@@ -120,40 +120,35 @@ position: fixed;
 width: 100%;
 height: 100%; 
 ``` 
-
 不能使用 ` position: absolute; ` ，其高度不是页面的高度，是窗口的高度。
 
-
-##伪类
+## 伪类
 CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。
 
 - 动态伪类
-
-```
-:link ==> 未访问前的样式效果
-:hover ==> 鼠标悬停时的样式效果
-:active ==> 鼠标点击时的样式效果
-:visited ==> 访问后的样式效果
-:focus ==> 元素成为焦点时的样式效果
-```
+    ```
+    :link ==> 未访问前的样式效果
+    :hover ==> 鼠标悬停时的样式效果
+    :active ==> 鼠标点击时的样式效果
+    :visited ==> 访问后的样式效果
+    :focus ==> 元素成为焦点时的样式效果
+    ```
 
 - 结构伪类（CSS选择符）
-
-```
-:first-child ==> 第一个子元素
-:last-child ==> 最后一个子元素
-:nth-child(n) ==> 第 n 个子元素
-:nth-child(2n) === :nth-child(even) ==> 偶数元素
-:nth-child(2n+1) === :nth-child(odd) ==> 奇数元素
-```
+    ```
+    :first-child ==> 第一个子元素
+    :last-child ==> 最后一个子元素
+    :nth-child(n) ==> 第 n 个子元素
+    :nth-child(2n) === :nth-child(even) ==> 偶数元素
+    :nth-child(2n+1) === :nth-child(odd) ==> 奇数元素
+    ```
 
 - 否定伪类（CSS选择符）
-```
-:not() ==> 不符合参数选择器 X 描述的元素。
-```
+    ```
+    :not() ==> 不符合参数选择器 X 描述的元素。
+    ```
 
 ## 伪元素
-
 伪元素添加到选择器，但不是描述特殊状态，它们可以为元素（**非空元素**）的某些部分设置样式。
 
 - `::before` 为当前元素创建一个**伪元素**，做为已选中元素的**第一个**子元素。常通过 `content` 属性来为该元素添加修饰性的内容。 这个**虚拟元素**默认是行内元素。
@@ -168,7 +163,6 @@ div::after{
     content: '';   // 必须有，才能显示出内容。
 }
 ```
-
 
 ## CSS 属性
 1. `work-break: break-all` 打断所有的单词，从而使得词语（单词）换行
@@ -201,17 +195,14 @@ div::after{
     - 设置 `margin-top` 和 `margin-bottom` 是无效的（解决方案：设置为 `display: inline-block; vertical-align: top;` ，如果此时该元素要居中，给其设置一个**行内父元素**，之后此**行内父元素** `text-align: center;`）
     - 设置 `margin-left` 和 `margin-right` 是**有效**的
 
-
 ## 小技巧 & 注意点
 
 1. `img` 的 `height` 和 `width` 写在 `img` 标签中，作为标签属性，这样可以避免重排的发生从而浪费了 CPU 性能（页面性能优化）。
-
     ```
     <img src= '' width= 200 height= 300 alt= ''>
     ```
 
 2. `hr` 的**最佳实践**
-
     ```
     .hr{
         border: none;
