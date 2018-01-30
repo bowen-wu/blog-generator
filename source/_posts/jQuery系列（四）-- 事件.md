@@ -34,7 +34,7 @@ tags: jQuery
 
 1. ` .change() ` ==> 监听 `<input>`、`<textarea>` 和 `<select>` 元素值改变
 
-1. ` .select() ` ==> 当在元素中进行文本选择时，此事件只能用在 <input type="text"> 和 <textarea>
+1. ` .select() ` ==> 当在元素中进行文本选择时，此事件只能用在 ` <input type="text"> ` 和 ` <textarea> `
 
 1. ` .submit() ` ==> 监听表单提交事件
 
