@@ -20,7 +20,6 @@ tags: CSS
 
 #### 定位居中法
 - 宽度固定
-
     ```
     position: absolute;
     left: 50%;
@@ -30,7 +29,6 @@ tags: CSS
     ```
 
 - 宽度不固定
-
     ```
     position: absolute;
     left: 50%;
@@ -39,7 +37,6 @@ tags: CSS
     ```
 
 #### 弹出层或者 loading 定位居中
-
 ```
 position: absolute; // 此种方法需要配合定宽定高
 top: 0;
@@ -50,7 +47,6 @@ margin: auto;
 ```
 
 #### Flex 布局居中
-
 ```
 display: flex;
 justify-content: center;
@@ -59,7 +55,6 @@ align-items: center;
 
 ## 纯 CSS 实现三角形
 - first
-
     ```
     div.first{
       border:10px solid transparent;
@@ -69,8 +64,8 @@ align-items: center;
     ```
 
     ![三角形-first.png](http://upload-images.jianshu.io/upload_images/9617841-077b0d7ad37b7982.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-- second
 
+- second
     ```
     div.second{
       border:40px solid transparent;
@@ -81,8 +76,8 @@ align-items: center;
     ```
 
     ![三角形-second.png](http://upload-images.jianshu.io/upload_images/9617841-cd63ba6dd15b2ba9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-- third
 
+- third
     ```
     div.third{
       border:20px solid transparent;
@@ -97,7 +92,7 @@ align-items: center;
 这里推荐一个[使用纯 CSS 实现各种图形](https://css-tricks.com/examples/ShapesOfCSS/)的网站
 
 ## 两个元素重叠一部分
-  ![效果图](http://upload-images.jianshu.io/upload_images/9617841-64958b12dd693d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![效果图](http://upload-images.jianshu.io/upload_images/9617841-64958b12dd693d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **方法：**
 - `margin` 负值法： `margin-top: - `
@@ -108,7 +103,6 @@ align-items: center;
 
 ## 内联元素消除空隙
 当元素为内联元素 | 内联块级元素时，该元素下方会有小空隙，消除空隙 
-
 ```
 display: inline | inline-block;
 vertical-align: top;
@@ -119,8 +113,8 @@ vertical-align: top;
 position: fixed;
 width: 100%;
 height: 100%; 
-``` 
-不能使用 ` position: absolute; ` ，其高度不是页面的高度，是窗口的高度。
+```
+不能使用 ` position: absolute; ` ，其高度不是页面的高度，是窗口的高度
 
 ## 伪类
 CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。
