@@ -108,6 +108,32 @@ Cookie 主要用于以下三个方面
 2. 个性化设置（如用户自定义设置、主题等）
 3. 浏览器跟踪行为（如跟踪用户行为等）
 
+### 前端设置 Cookie
+通过 ` document.cookie ` API 可以获取或设置当前文档相关联的 Cookie
+##### 读取 Cookie
+```
+let  allCookie = document.cookie
+```
+##### 设置（写一个新的）Cookie
+```
+document.cookie = newCookie
+```
+` newCookie ` 是一个键值对形式的字符串，使用这个方法一次只能对一个
+ Cookie 进行设置或更新。以下可选 Cookie 属性值可以跟在键值对后，用来具体化对 Cookie 的设置或更新，使用分号进行分隔
+   - ` ;path = path ` ==> 如果没有定义，默认为当前文档位置的路径
+
+   - ` ;domain = domain ` ==> 如果没有定义，默认为当前文档位置的路径的域名部分
+
+   - ` ;max-age = max-age-in-seconds ` ==> 过期时长
+
+   - ` ;expires = date-in-GMTString-format ` ==> 如果没有定义，Cookie 会在会话结束时过期
+
+   - ` ;secure ` ==> Cookie 只能通过 HTTPS 传输
+```
+document.cookie = "someCookieName=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+```
+
+
 ### 后端 + code
 后端验证成功（200）时会设置一个 Cookie 响应头
 ```
