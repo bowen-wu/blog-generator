@@ -52,6 +52,7 @@ tags: 总结
     ```
     <link rel="stylesheet" metia="(max-width: 800px)" href="xxx.css">
     ``` 
+
     样式表中的 CSS 媒体查询
     ```
     <style>

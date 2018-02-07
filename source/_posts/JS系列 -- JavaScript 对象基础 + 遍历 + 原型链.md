@@ -1,5 +1,5 @@
 ---
-title: JS系列 -- JavaScript 对象基础
+title: JS系列 -- JavaScript 对象基础 + 遍历 + 原型链
 date: 2018-01-10 12:52:55
 tags: JavaScript
 ---
@@ -74,4 +74,94 @@ Object.keys(obj).forEach( ( item ) => {
 Object.getOwnPropertyNames( obj ).forEach( (item) => {
     console.log( obj[ item ] )
 })
+```
+
+# __proto__ + prototype 
+实例化对象的 ` __proto__ ` 指向构造函数的 ` prototype `，即**` 对象.__proto__  ===  函数.prototype `**
+```
+"1".__proto__ === String.prototype
+1.__proto__ === Number.prototype
+true.__proto__ === Boolean.prototype
+```
+### 测试
+```
+let arr = []
+arr.__proto__ === ??? 
+Array.__proto__ === ???
+typeof Array.prototype  ???
+Array.prototype.__proto__ === ???
+```
+### 答案
+```
+arr.__proto__ === Array.prototype
+Array.__proto__ === Function.prototype
+typeof Array.prototype  // 'Object'
+Array.prototype.__proto__ === Object.prototype
+```
+
+## 对象属性赋值 + 查找
+对象属性赋值是在自身属性赋值，不会修改原型链，而查找会在原型链中查找
+
+# new 的实现
+var 对象 = new 函数
+### 方法一：Object.create()
+```
+function _new(){
+    let constructor = arguments[0]
+    let obj = Object.create( constructor.prototype )
+    constructor.apply( obj, [].slice.call( argumnets, 1 ))
+    return obj
+}
+```
+## 方法二：Object.setPrototypeOf()
+```
+function _new(){
+    let constructor = arguments[0]
+    let obj = {}
+    Object.setPrototypeOf( obj, constructor )
+    constructor.apply( obj, [].slice.call( argumnets, 1 ))
+    return obj
+}
+```
+
+# instanceof 
+` instanceof ` 是在原型链中查找是否是其实例（instance）
+### instanceof 实现
+```
+function _instanceof( instance, fn ){
+    let i = instance.__proto__
+    while( i ){
+        if( i === fn.prototype ){
+            return true
+        }
+        i = i.__proto__
+    }
+    return false
+}
+```
+
+# 继承
+实现继承主要是要实现原型的属性 + 方法
+
+### 属性继承
+```
+call
+```
+
+### 方法继承
+```
+Object.create()
+Object.setPrototypeOf()
+```
+
+### 属性 + 方法继承
+```
+new
+```
+[继承示例](https://www.jianshu.com/p/912335a9a175)
+
+## 相关知识点
+最简单的克隆
+```
+result = JSON.parse( JSON.stringify( obj ) )
 ```
