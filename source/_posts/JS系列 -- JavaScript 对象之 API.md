@@ -15,6 +15,15 @@ enumerable ==> 是否可枚举 ==> false(默认)
 configurable ==> 是否可配置 ==> false(默认)
 ```
 
+### Object.assign()
+用于将所有可枚举属性的值从一个或多个源对象复制到目标对象并返回目标对象
+```
+Object.assign(target, ...sources)  // target 目标对象， sources 源对象
+
+Object.assign( { a: 2, b: 1 }, { a: 1 } )   // { a: 1, b: 1 }
+Object.assign( { a: 1, b: 2 }, { a: 'a' }, { c: 3 }, { a: 4 } )  // { a: 4, b: 2, c: 3 }
+```
+
 ### Object.create()
 创建一个空对象，空对象的原型指向参数
 ```

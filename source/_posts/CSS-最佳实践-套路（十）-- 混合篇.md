@@ -27,7 +27,6 @@ tags: CSS
     margin-top: -width/2;
     margin-left: -heigth/2
     ```
-
 - 宽度不固定
     ```
     position: absolute;
@@ -35,7 +34,6 @@ tags: CSS
     top: 50%;
     transform: translate(-50%,-50%)   // CSS3 属性
     ```
-
 #### 弹出层或者 loading 定位居中
 ```
 position: absolute; // 此种方法需要配合定宽定高
@@ -45,12 +43,21 @@ left: 0;
 right: 0;
 margin: auto;
 ```
-
 #### Flex 布局居中
 ```
 display: flex;
 justify-content: center;
 align-items: center;
+```
+
+## 滚动但是不显示滚动条
+```
+selector{
+    overflow: auto;
+}
+selector::-webkit-scrollbar {
+    display: none;
+}
 ```
 
 ## 纯 CSS 实现三角形
@@ -62,9 +69,7 @@ align-items: center;
       border-top-color: red;
     }
     ```
-
     ![三角形-first.png](http://upload-images.jianshu.io/upload_images/9617841-077b0d7ad37b7982.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 - second
     ```
     div.second{
@@ -74,9 +79,7 @@ align-items: center;
       border-left-color: red;
     }
     ```
-
     ![三角形-second.png](http://upload-images.jianshu.io/upload_images/9617841-cd63ba6dd15b2ba9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 - third
     ```
     div.third{
@@ -86,19 +89,15 @@ align-items: center;
       border-left-color: red;
     }
     ```
-
     ![三角形-third.png](http://upload-images.jianshu.io/upload_images/9617841-fc99fb26421f7ca5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 这里推荐一个[使用纯 CSS 实现各种图形](https://css-tricks.com/examples/ShapesOfCSS/)的网站
 
 ## 两个元素重叠一部分
-![效果图](http://upload-images.jianshu.io/upload_images/9617841-64958b12dd693d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+  ![效果图](http://upload-images.jianshu.io/upload_images/9617841-64958b12dd693d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 **方法：**
 - `margin` 负值法： `margin-top: - `
-
 - CSS3 transform属性： `transform: translate(- )` [ 原始位置保留不变，下方元素和 `transform` 元素有**间隔** ]
-
 - 相对定位：`position: relative; top(- )` [ 原始位置保留不变，下方元素和相对定位元素有**间隔** ]
 
 ## 内联元素消除空隙
@@ -109,46 +108,42 @@ vertical-align: top;
 ```
 
 ## 如果想要整个页面的遮罩层，需要使用 
-``` 
-position: fixed;
-width: 100%;
-height: 100%; 
-```
-不能使用 ` position: absolute; ` ，其高度不是页面的高度，是窗口的高度
+    ``` 
+    position: fixed;
+    width: 100%;
+    height: 100%; 
+    ``` 
+    不能使用 ` position: absolute; ` ，其高度不是页面的高度，是窗口的高度。
 
-## 伪类
+
+##伪类
 CSS伪类是添加到选择器的关键字，指定要选择的元素的特殊状态。
-
 - 动态伪类
-    ```
-    :link ==> 未访问前的样式效果
-    :hover ==> 鼠标悬停时的样式效果
-    :active ==> 鼠标点击时的样式效果
-    :visited ==> 访问后的样式效果
-    :focus ==> 元素成为焦点时的样式效果
-    ```
-
+```
+:link ==> 未访问前的样式效果
+:hover ==> 鼠标悬停时的样式效果
+:active ==> 鼠标点击时的样式效果
+:visited ==> 访问后的样式效果
+:focus ==> 元素成为焦点时的样式效果
+```
 - 结构伪类（CSS选择符）
-    ```
-    :first-child ==> 第一个子元素
-    :last-child ==> 最后一个子元素
-    :nth-child(n) ==> 第 n 个子元素
-    :nth-child(2n) === :nth-child(even) ==> 偶数元素
-    :nth-child(2n+1) === :nth-child(odd) ==> 奇数元素
-    ```
+```
+:first-child ==> 第一个子元素
+:last-child ==> 最后一个子元素
+:nth-child(n) ==> 第 n 个子元素
+:nth-child(2n) === :nth-child(even) ==> 偶数元素
+:nth-child(2n+1) === :nth-child(odd) ==> 奇数元素
+```
 
 - 否定伪类（CSS选择符）
-    ```
-    :not() ==> 不符合参数选择器 X 描述的元素。
-    ```
+```
+:not() ==> 不符合参数选择器 X 描述的元素。
+```
 
 ## 伪元素
 伪元素添加到选择器，但不是描述特殊状态，它们可以为元素（**非空元素**）的某些部分设置样式。
-
 - `::before` 为当前元素创建一个**伪元素**，做为已选中元素的**第一个**子元素。常通过 `content` 属性来为该元素添加修饰性的内容。 这个**虚拟元素**默认是行内元素。
-
 - `::after` 为当前元素创建一个**伪元素**，做为已选中元素的**最后一个**子元素。常通过 `content` 属性来为该元素添加修饰性的内容。这个**虚拟元素**默认是行内元素。
-
 ```
 div::before{
     content: '';  // 必须有，才能显示出内容。
@@ -158,13 +153,13 @@ div::after{
 }
 ```
 
+
 ## CSS 属性
 1. `work-break: break-all` 打断所有的单词，从而使得词语（单词）换行
 
 2. 圆：`border-radius: 50%;` 
 
 3. `position` 属性：用于指定一个元素在文档中的定位方式。值：
-
     ```
     static：该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。
     relative  
@@ -189,6 +184,7 @@ div::after{
     - 设置 `margin-top` 和 `margin-bottom` 是无效的（解决方案：设置为 `display: inline-block; vertical-align: top;` ，如果此时该元素要居中，给其设置一个**行内父元素**，之后此**行内父元素** `text-align: center;`）
     - 设置 `margin-left` 和 `margin-right` 是**有效**的
 
+
 ## 小技巧 & 注意点
 
 1. `img` 的 `height` 和 `width` 写在 `img` 标签中，作为标签属性，这样可以避免重排的发生从而浪费了 CPU 性能（页面性能优化）。
@@ -197,7 +193,7 @@ div::after{
     ```
 
 2. `hr` 的**最佳实践**
-    ```
+      ```
     .hr{
         border: none;
         border-top: 1px solid color;
