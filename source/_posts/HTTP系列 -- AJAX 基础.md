@@ -144,7 +144,7 @@ request.open( 'GET', '路径' )   // 配置 request
 
 //request.open( 'POST', '路径' )  
 // 配置 request ，如果是 POST 方法，必须设置 setRequestHeader
-//request.setRequestHeader( 'Content-type' , 'application/x-www-form=urlcoded' )
+//request.setRequestHeader( 'Content-type' , 'application/x-www-form-urlcoded' )
 
 request.send()
 request.onreadystatechange = () =>{
@@ -178,7 +178,7 @@ request.onreadystatechange = () =>{
 
 
 # JSON
-JSON（JavaScript Object Notation）：JavaScript 对象表示法，它是存储和交换文本信息的语法，类似 XML，它采用键值对的方式来组织，易于人们阅读和编写，同时也易于机器解析和生成。**它是一门新的语言**。
+JSON（JavaScript Object Notation）：存储和交换文本信息的语法，类似 XML，它采用键值对的方式来组织，易于人们阅读和编写，同时也易于机器解析和生成。**它是一门新的语言**。
 
 ### JSON 语法
 [JSON 铁轨图](https://www.json.org/)

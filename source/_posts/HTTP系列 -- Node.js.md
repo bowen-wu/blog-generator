@@ -14,9 +14,9 @@ response.end()
 ```
 ### response.setHeader( 'Content-Type', '类型' )
 类型：
-- HTML ==> response.setHeader( 'Content-Type', 'text/html; charset = utf-8' )
-- CSS ==> response.setHeader( 'Content-Type', 'text/css' )
-- JavaScript ==> response.setHeader( 'Content-Type', 'application/javascript' )
+- HTML ==> ` response.setHeader( 'Content-Type, 'text/html; charset = utf-8' ) `
+- CSS ==> ` response.setHeader( 'Content-Type', 'text/css' ) `
+- JavaScript ==> ` response.setHeader( 'Content-Type', 'application/javascript' ) `
 
 # 创建 Node.js 服务器
 ```
@@ -130,7 +130,7 @@ console.log('监听 ' + port + ' 成功\n请用在空中转体720度然后用电
     node server.js 端口号
     ```
 
-#使用 Node.js 发起请求
+# 使用 Node.js 发起请求
 1. 在新的 Bash 窗口运行 `curl http://localhost:你的指定的端口/xxx` 或者 `curl http://127.0.0.1:你指定的端口/xxx`即可发起请求
 
 2. 在浏览器窗口地址栏中输入 `http://localhost:你的指定的端口/xxx` 或者 `http://127.0.0.1:你指定的端口/xxx` 回车，即可发起请求。

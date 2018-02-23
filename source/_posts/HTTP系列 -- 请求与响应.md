@@ -49,7 +49,7 @@ tags: HTTP
 ```
 Host: www.baidu.com  // 域名
 User-Agent:      // 用的什么软件发起的请求
-Content-Type: application/x-www-form-urlcoded    //标识了第4部分的格式，POST 请求
+Content-Type: application/x-www-form-urlcoded    //标识了第4部分的格式,POST 请求
 Content-Length: 
 Cookie: 
 ```

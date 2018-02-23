@@ -118,8 +118,7 @@ let  allCookie = document.cookie
 ```
 document.cookie = newCookie
 ```
-` newCookie ` 是一个键值对形式的字符串，使用这个方法一次只能对一个
- Cookie 进行设置或更新。以下可选 Cookie 属性值可以跟在键值对后，用来具体化对 Cookie 的设置或更新，使用分号进行分隔
+` newCookie ` 是一个键值对形式的字符串，使用这个方法一次只能对一个 Cookie 进行设置或更新。以下可选 Cookie 属性值可以跟在键值对后，用来具体化对 Cookie 的设置或更新，使用分号进行分隔
    - ` ;path = path ` ==> 如果没有定义，默认为当前文档位置的路径
 
    - ` ;domain = domain ` ==> 如果没有定义，默认为当前文档位置的路径的域名部分

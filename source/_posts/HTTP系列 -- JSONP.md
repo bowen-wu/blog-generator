@@ -16,22 +16,22 @@ tags: HTTP
 缺点：用户刷新页面  ==>  数据变动
 
 #### JS动态创建 ` img ` 标签
-    ```
-    let img = document.createElement('img');
-    img.src = '路径'
-    img.onload = function(){}  ==>  HTTP状态码
-    img.onerror = function(){}  ==>  HTTP状态码
-    ```
+```
+let img = document.createElement('img');
+img.src = '路径'
+img.onload = function(){}  ==>  HTTP状态码
+img.onerror = function(){}  ==>  HTTP状态码
+```
 通过路径，在 Nodejs 中设置成功或者失败，之后返回状态码，前端通过返回的HTTP状态码，进而来判断成功失败。
 
 #### 动态创建 ` script ` 标签
-    ```
-    let script = document.createElement('script');
-    script.src = '路径';
-    document.body.appendChild(script);
-    script.onload = function(){}
-    script.onerror = function(){}
-    ```
+```
+let script = document.createElement('script');
+script.src = '路径';
+document.body.appendChild(script);
+script.onload = function(){}
+script.onerror = function(){}
+```
 - 通过设置响应头中的类型进而来确定返回内容的格式（第四部分），从而保证返回的是 JavaScript 代码。
 -  当创建  ` script ` 标签插入 ` body ` 后，返回的内容会立即执行，之后再去执行 ` onload ` 和 ` onerror ` 事件，所以说  ` onload ` 可以进行删除， 之后将处理逻辑交给后端（处理逻辑中应该包括使用完 ` script ` 标签之后立刻删除），但是此时前后端耦合。
 - ` script ` 的 ` src ` 属性可以访问其他地址
@@ -39,7 +39,7 @@ tags: HTTP
 # JSONP
 动态创建 ` script ` 并调用前端传给后端的 callback 技术
 ### 版本一
-#####Nodejs：
+##### Nodejs：
 ```
 response.write(` callback.call(undefined,' success ') `);
 ```
