@@ -144,7 +144,6 @@ tags: JavaScript
     ```
     fun.bind( this [ , arg1 [ , arg2 [ , ... ] ] ] )
     ```
-    
     **使用实例：**
     1. 实例1：**基本用法**
     ![bind 基本用法](http://upload-images.jianshu.io/upload_images/9617841-f825f2fa123c4db2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -174,44 +173,48 @@ scope（范围、视野、眼界）
 # 变量提升
 将作用域链中首先要做**变量提升**
 ###### 例子1：
-    var a = 1;
-    function fn(){
-        console.log( a );
-        var a = 2;
-    }
-    fn.call();  //  a === undefined
+```
+var a = 1;
+function fn(){
+    console.log( a );
+    var a = 2;
+}
+fn.call();  //  a === undefined
+```
     
 ###### 例子2：
-    var a = 1;
-    function fn1(){
-        console.log( a );  //  a === undefined
-        var a = 2;
-        fn2.call();
-    }
-    function fn2(){
-        console.log( a );  //  a === 1
-    }
-    fn1.call();
-
+```
+var a = 1;
+function fn1(){
+    console.log( a );  //  a === undefined
+    var a = 2;
+    fn2.call();
+}
+function fn2(){
+    console.log( a );  //  a === 1
+}
+fn1.call();
+```
 ###### 例子3：
-    var obj = { name: ' obj ' }
-    function fn1(){
-        function fn2(){
-            console.log( this );   // this === window 
-        }
-        fn2.call();
+```
+var obj = { name: ' obj ' }
+function fn1(){
+    function fn2(){
+        console.log( this );   // this === window 
     }
-    fn1.call( obj );
-
-
+    fn2.call();
+}
+fn1.call( obj );
+```
 ###### 例子4：
-    var liTags = document.querySelectAll( ' li ' );
-    for( let i = 0, len = liTags.length; i < len; i++ ){
-        liTags[ i ].onclick = function(){
-            console.log( i )  // 打印出的 i 都是最后的数字
-        }
+```
+var liTags = document.querySelectAll( ' li ' );
+for( let i = 0, len = liTags.length; i < len; i++ ){
+    liTags[ i ].onclick = function(){
+        console.log( i )  // 打印出的 i 都是最后的数字
     }
-
+}
+```
 # this 值
 
 this 的调用主要有两种方式，一种是函数（function），另一种是作为对象的方法（methods）

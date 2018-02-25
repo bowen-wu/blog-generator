@@ -41,13 +41,13 @@ tags: JavaScript
 - NaN 与任何值都不相等，包括 NaN 本身
 
 ### 转换类型（3函数 2操作符）
-- Number() ==> 可以用于任何函数
-- parseInt() ==> 用于将字符串转换为数值 **parseInt("") //NaN**
-- parseFloat() ==> 用于将字符串转换为数值
-- 一元 + 操作符 ==> 等价于Number()
-- ' - 0 '  //任意一个类型减去0
+- ` Number() ` ==> 可以用于任何函数
+- ` parseInt() ` ==> 用于将字符串转换为数值 **` parseInt("") //NaN `**
+- ` parseFloat() ` ==> 用于将字符串转换为数值
+- 一元 ` + ` 操作符 ==> 等价于 ` Number() `
+- ` ' - 0 ' `  //任意一个类型减去0
 
-**parseInt('s') ==> NaN**
+**` parseInt('s') ==> NaN `**
 
 # 字符串
 

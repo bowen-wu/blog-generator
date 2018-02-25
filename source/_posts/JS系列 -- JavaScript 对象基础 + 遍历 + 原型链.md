@@ -25,7 +25,7 @@ obj["name"]   // 必须带有 " " ，如果不带 " " JS 首先会找 name 的�
     ```
 2. 
     ```
-     var obj2 = new Object();  //obj1 和 obj2 没有区别，但是 obj1 === obj2     是 false ，因为存储在 Stsck(栈内存) 中的地址不同
+     var obj2 = new Object();  //obj1 和 obj2 没有区别，但是 obj1 === obj2 是 false ，因为存储在 Stsck(栈内存) 中的地址不同
     ```
 3. 
     ```
@@ -55,7 +55,6 @@ for( let key in obj ){
     }
 }
 ```
-### 
 
 ![Object for...in 遍历](http://upload-images.jianshu.io/upload_images/9617841-c3c19ca702bb6cbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -103,7 +102,7 @@ Array.prototype.__proto__ === Object.prototype
 对象属性赋值是在自身属性赋值，不会修改原型链，而查找会在原型链中查找
 
 # new 的实现
-var 对象 = new 函数
+` var 对象 = new 函数 `
 ### 方法一：Object.create()
 ```
 function _new(){
@@ -141,20 +140,20 @@ function _instanceof( instance, fn ){
 ```
 
 # 继承
-实现继承主要是要实现原型的属性 + 方法
+实现继承主要是要实现原型的私有属性 + 公共属性
 
-### 属性继承
+### 私有属性继承
 ```
 call
 ```
 
-### 方法继承
+### 公共属性继承
 ```
 Object.create()
 Object.setPrototypeOf()
 ```
 
-### 属性 + 方法继承
+### 私有属性 + 公共属性继承
 ```
 new
 ```
@@ -164,4 +163,5 @@ new
 最简单的克隆
 ```
 result = JSON.parse( JSON.stringify( obj ) )
+result = Object.assign({}, obj)
 ```
